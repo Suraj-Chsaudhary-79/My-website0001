@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multipurpose Website</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(to right, #4CAF50, hsl(253, 96%, 32%));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 15px;
+        }
+
+        nav a:hover {
+            background: #4CAF50;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: hsl(1, 90%, 24%);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #about, #services, #contact {
+            background: orange;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px blue (0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.1em;
+            color: black;
+        }
+
+        /* Footer */
+        footer {
+            background: blue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Multipurpose Website</h1>
+        <p>Everything you need in one place</p>
+        <div class="image-container">
+            <img src="data:image/png;base64,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" alt="Responsive Image">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="https://www.google.com/url?q=https%3A%2F%2Fwww.instagram.com%2Fsuraj__chaudhary__79%3Figsh%3DMWJ5aDU1bXFzZTJ4MQ%3D%3D&sa=D&sntz=1&usg=AOvVaw2gWKh__hbwlA30ppcazX3p%3EMy%20Instagram">Suraj Chaudhary</a>
+        <div class="dropdown">
+              <a href="#">Social media</a>
+              <div class="dropdown-content">
+              <a href="https://en.wikipedia.org/wiki/Facebook">Facebook</a>
+              <a hreaf="https://commons.wikimedia.org/wiki/File:Instagram_logo_2022.svg">Instragram</a>
+              <a href="https://www.youtube.com/shorts/VWJ_lXAo1-I">Youtube</a>
+              <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-png%2Ftiktok-logo-icon&psig=AOvVaw3N8rxYozXzBLZU4zwDnIS_&ust=1735531759914000&source=images&cd=vfe&opi=89978449&ved=0CBMQjhxqFwoTCLDa8vWNzIoDFQAAAAAdAAAAABAM">Ticktock</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">games</a>
+            <div class="dropdown-content">
+                <a href="#https://poki.com/en/g/mr-racer-car-racing">Cargame 01 </a>
+                <a href="https://poki.com/en/g/top-speed-3d">Topseed cargame 02</a>
+                <a href="https://poki.com/en/g/temple-run-2">tample run2 game03</a>
+                <a hreaf="https://poki.com/en/g/3d-moto-simulator-2">moterbike game04</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are need your advice to Development and grate changes in this site.<br> So you can give advice contact in suraj chaudhary full procrss in service.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>Here are the top services we offer:</p>
+        <ul>
+            <li>Contact process<br>Number 01<br>click on suraj chaudhary header on this site<br>and click on Message and <br>sent Messages<br>Number 02<br>go on your email Application and send email on<br>skchaudhary@gmail.com</li>
+            <li>Website Development</li>
+            <li>We are you in code of<br>Python and Html </li>
+        </ul>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team">
+        <h2>Meet Our Team</h2>
+        <p>We have a team of skilled professionals dedicated to delivering the best results for our clients.</p>        
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Our Projects</h2>
+        <p>Take a look at some of the innovative projects we have completed:</p>
+        <ul>
+            <li>Make calculator</li>
+            <li>Custom Web sites</li>
+            <li>Make password genrator<br>OTP genrator<br>pygames |(etc.) </li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to work with us, reach out now!</p>
+        <form>
+            <input type="text" placeholder="Your Name" required><br><br>
+            <input type="email" placeholder="Your Email" required><br><br>
+            <textarea placeholder="Your Message" rows="5" required></textarea><br><br>
+            <button type="https://www.google.com/url?q=https%3A%2F%2Fwww.instagram.com%2Fsuraj__chaudhary__79%3Figsh%3DMWJ5aDU1bXFzZTJ4MQ%3D%3D&sa=D&sntz=1&usg=AOvVaw2gWKh__hbwlA30ppcazX3p%3EMy%20Instagram">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Multipurpose Website | Skchaudhary@gmail.com</p>
+    </footer>
+</body>
+</html>
+
+
+                                                                                         THE END 
